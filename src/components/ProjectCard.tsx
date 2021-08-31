@@ -7,9 +7,10 @@ import {
 	Typography,
 	makeStyles,
 	createStyles,
-	ButtonGroup,
+	CardMedia,
 } from "@material-ui/core";
 import React, { FC } from "react";
+import Image from "next/image";
 import { ProjectCardProps } from "../data/projects";
 
 const useStyles = makeStyles(() =>
@@ -31,6 +32,9 @@ const ProjectCard: FC<ProjectCardProps> = ({ title, links, description }) => {
 	return (
 		<Card className={classes.card}>
 			<CardHeader title={title} />
+			<CardMedia>
+				<Image src={links?.img} alt="screenshot of site" width="1920" height="1080" />
+			</CardMedia>
 			<CardContent>
 				<Typography>{description}</Typography>
 			</CardContent>

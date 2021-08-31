@@ -1,9 +1,10 @@
 export type ProjectCardProps = {
 	title: string;
 	description: string;
-	links?: {
+	links: {
 		visit: string;
 		source: string;
+		img: string;
 	};
 };
 
@@ -14,6 +15,7 @@ const projects: ProjectCardProps[] = [
 		links: {
 			visit: "https://mathgasm.netlify.app/",
 			source: "https://github.com/trenaryja/mathgasm",
+			img: "/screenshots/mathgasm.netlify.app_.png",
 		},
 	},
 	{
@@ -23,6 +25,7 @@ const projects: ProjectCardProps[] = [
 		links: {
 			visit: "https://noise-visualizer.netlify.app/",
 			source: "https://github.com/trenaryja/noise-generator",
+			img: "/screenshots/noise-visualizer.netlify.app_.png",
 		},
 	},
 	{
@@ -31,6 +34,7 @@ const projects: ProjectCardProps[] = [
 		links: {
 			visit: "https://howlongsince.netlify.app/",
 			source: "https://github.com/trenaryja/howlongsince",
+			img: "/screenshots/howlongsince.netlify.app_.png",
 		},
 	},
 	{
@@ -40,6 +44,7 @@ const projects: ProjectCardProps[] = [
 		links: {
 			visit: "https://material-color.herokuapp.com/",
 			source: "https://github.com/trenaryja/material-color",
+			img: "/screenshots/material-color.herokuapp.com_.png",
 		},
 	},
 	{
@@ -49,6 +54,7 @@ const projects: ProjectCardProps[] = [
 		links: {
 			visit: "#",
 			source: "https://github.com/trenaryja/portfolio",
+			img: "/screenshots/justintrenary.netlify.app_.png",
 		},
 	},
 ];
