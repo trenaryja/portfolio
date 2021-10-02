@@ -5,7 +5,7 @@ import SectionHeader from "./SectionHeader";
 const useStyles = makeStyles((theme) =>
 	createStyles({
 		container: {
-			padding: theme.spacing(10),
+			padding: theme.spacing(5),
 		},
 	}),
 );
@@ -15,7 +15,7 @@ const About: FC = () => {
 	return (
 		<Container className={classes.container}>
 			<SectionHeader id="about" text="About" />
-			<Typography variant="h4">
+			<Typography variant="h6">
 				I am a full stack software engineer with experience working in the government contracting industry. My
 				interests in software are wide, ranging from backend technologies such as GraphQL, to front end
 				technologies such as React and React Native. Having built multiple personal web applications and npm

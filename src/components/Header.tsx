@@ -1,7 +1,7 @@
 import { AppBar, Button, Container, createStyles, makeStyles, Toolbar } from "@material-ui/core";
 import React, { FC } from "react";
 import SocialButtons from "./SocialButtons";
-import { scrollTo, scrollToTop } from "../utils/utils";
+import { scrollTo } from "../utils/utils";
 
 const useStyles = makeStyles(() =>
 	createStyles({
@@ -18,7 +18,6 @@ const Header: FC = () => {
 		<AppBar position="relative">
 			<Container>
 				<Toolbar className={classes.toolbar}>
-					<Button onClick={() => scrollToTop()}>Justin Trenary</Button>
 					<Button onClick={() => scrollTo("about")}>About</Button>
 					<Button onClick={() => scrollTo("projects")}>Projects</Button>
 					<Button onClick={() => scrollTo("contact")}>Contact</Button>
