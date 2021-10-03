@@ -1,8 +1,10 @@
-import { Container, createStyles, makeStyles, Theme, Typography } from "@material-ui/core";
+import { Container, Theme, Typography } from "@mui/material";
+import createStyles from "@mui/styles/createStyles";
+import makeStyles from "@mui/styles/makeStyles";
 import React, { FC } from "react";
 import SocialButtons from "./SocialButtons";
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles((theme) =>
 	createStyles({
 		footer: {
 			marginTop: "auto",
@@ -13,6 +15,19 @@ const useStyles = makeStyles((theme: Theme) =>
 			display: "flex",
 			justifyContent: "space-around",
 			alignItems: "center",
+			[theme.breakpoints.down("sm")]: {
+				flexDirection: "column",
+			},
+		},
+		madeBy: {
+			textAlign: "center",
+			[theme.breakpoints.down("sm")]: {
+				paddingBottom: theme.spacing(2),
+			},
+		},
+		emoji: {
+			color: "transparent",
+			textShadow: `0 0 0 ${theme.palette.primary.main}`,
 		},
 	}),
 );
@@ -23,7 +38,9 @@ const Footer: FC = () => {
 	return (
 		<footer className={classes.footer}>
 			<Container className={classes.container}>
-				<Typography>Made with ❤️ by Justin Trenary</Typography>
+				<Typography className={classes.madeBy}>
+					Made with <span className={classes.emoji}>❤️</span> by Justin Trenary
+				</Typography>
 				<SocialButtons />
 			</Container>
 		</footer>

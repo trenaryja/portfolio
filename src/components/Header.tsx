@@ -1,4 +1,6 @@
-import { AppBar, Button, Container, createStyles, makeStyles, Toolbar } from "@material-ui/core";
+import { AppBar, Button, Container, Toolbar } from "@mui/material";
+import createStyles from "@mui/styles/createStyles";
+import makeStyles from "@mui/styles/makeStyles";
 import React, { FC } from "react";
 import SocialButtons from "./SocialButtons";
 import { scrollTo } from "../utils/utils";
@@ -21,7 +23,6 @@ const Header: FC = () => {
 					<Button onClick={() => scrollTo("about")}>About</Button>
 					<Button onClick={() => scrollTo("projects")}>Projects</Button>
 					<Button onClick={() => scrollTo("contact")}>Contact</Button>
-					<SocialButtons />
 				</Toolbar>
 			</Container>
 		</AppBar>

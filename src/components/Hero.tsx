@@ -1,14 +1,19 @@
-import { Box, Container, createStyles, makeStyles, Typography } from "@material-ui/core";
+import { Box, Container, Typography } from "@mui/material";
+import createStyles from "@mui/styles/createStyles";
+import makeStyles from "@mui/styles/makeStyles";
 import React, { FC } from "react";
 import Image from "next/image";
 
-const useStyles = makeStyles(() =>
+const useStyles = makeStyles((theme) =>
 	createStyles({
 		hero: {
 			display: "flex",
 			justifyContent: "space-around",
 			alignItems: "center",
 			textAlign: "center",
+			[theme.breakpoints.down("sm")]: {
+				flexDirection: "column",
+			},
 		},
 	}),
 );

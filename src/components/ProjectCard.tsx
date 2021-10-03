@@ -1,14 +1,6 @@
-import {
-	Button,
-	Card,
-	CardActions,
-	CardHeader,
-	CardContent,
-	Typography,
-	makeStyles,
-	createStyles,
-	CardMedia,
-} from "@material-ui/core";
+import { Button, Card, CardActions, CardHeader, CardContent, Typography, CardMedia } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
+import createStyles from "@mui/styles/createStyles";
 import React, { FC } from "react";
 import Image from "next/image";
 import { ProjectCardProps } from "../data/projects";

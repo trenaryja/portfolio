@@ -1,5 +1,8 @@
 import React, { FC } from "react";
-import { makeStyles, Box, createStyles, Grid } from "@material-ui/core";
+import { Box } from "@mui/material";
+
+import makeStyles from "@mui/styles/makeStyles";
+import createStyles from "@mui/styles/createStyles";
 
 import Header from "./Header";
 import Footer from "./Footer";

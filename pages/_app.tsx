@@ -1,9 +1,13 @@
 import React from "react";
 import Head from "next/head";
 import { AppProps } from "next/app";
-import { ThemeProvider } from "@material-ui/core/styles";
-import CssBaseline from "@material-ui/core/CssBaseline";
+import { ThemeProvider, Theme, StyledEngineProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
 import theme from "../src/styles/theme";
+
+declare module "@mui/styles/defaultTheme" {
+	interface DefaultTheme extends Theme {}
+}
 
 export default function MyApp(props: AppProps) {
 	const { Component, pageProps } = props;
@@ -21,10 +25,12 @@ export default function MyApp(props: AppProps) {
 				<title>Justin Trenary: Portfolio</title>
 				<meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
 			</Head>
-			<ThemeProvider theme={theme}>
-				<CssBaseline />
-				<Component {...pageProps} />
-			</ThemeProvider>
+			<StyledEngineProvider injectFirst>
+				<ThemeProvider theme={theme}>
+					<CssBaseline />
+					<Component {...pageProps} />
+				</ThemeProvider>
+			</StyledEngineProvider>
 		</React.Fragment>
 	);
 }

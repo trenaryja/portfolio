@@ -1,4 +1,6 @@
-import { Container, createStyles, makeStyles, Typography } from "@material-ui/core";
+import { Container } from "@mui/material";
+import createStyles from "@mui/styles/createStyles";
+import makeStyles from "@mui/styles/makeStyles";
 import React, { FC } from "react";
 import ProjectCard from "./ProjectCard";
 import projects, { ProjectCardProps } from "../data/projects";
@@ -8,9 +10,14 @@ const useStyles = makeStyles((theme) =>
 	createStyles({
 		grid: {
 			display: "grid",
-			gridTemplateColumns: "1fr 1fr",
 			gap: theme.spacing(5),
 			paddingBottom: theme.spacing(5),
+			[theme.breakpoints.up("sm")]: {
+				gridTemplateColumns: "1fr 1fr",
+			},
+			[theme.breakpoints.down("sm")]: {
+				gridTemplateColumns: "1fr",
+			},
 		},
 	}),
 );

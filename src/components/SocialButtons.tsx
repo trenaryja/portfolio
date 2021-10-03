@@ -1,4 +1,4 @@
-import { ButtonGroup, Button } from "@material-ui/core";
+import { ButtonGroup, Button } from "@mui/material";
 import React, { FC } from "react";
 import { IconBaseProps } from "react-icons";
 import { FaCodepen, FaGithub, FaLinkedin } from "react-icons/fa";

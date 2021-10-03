@@ -1,13 +1,11 @@
-import { colors, createTheme } from "@material-ui/core";
+import { createTheme } from "@mui/material";
+import { amber } from "@mui/material/colors";
 
 const theme = createTheme({
 	palette: {
-		type: "dark",
+		mode: "dark",
 		primary: {
-			main: colors.cyan[500],
-		},
-		secondary: {
-			main: colors.indigo[500],
+			main: amber[500],
 		},
 	},
 });

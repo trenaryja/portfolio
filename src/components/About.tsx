@@ -1,4 +1,6 @@
-import { Container, createStyles, makeStyles, Typography } from "@material-ui/core";
+import { Container, Typography } from "@mui/material";
+import createStyles from "@mui/styles/createStyles";
+import makeStyles from "@mui/styles/makeStyles";
 import React, { FC } from "react";
 import SectionHeader from "./SectionHeader";
 
