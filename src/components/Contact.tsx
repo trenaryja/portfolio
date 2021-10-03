@@ -44,13 +44,13 @@ const Contact: FC = () => {
 
 	const handleSubmit = async (e: FormEvent) => {
 		e.preventDefault();
-		// const result = await emailjs.sendForm(
-		// 	process.env.NEXT_PUBLIC_SERVICE_ID,
-		// 	process.env.NEXT_PUBLIC_TEMPLATE_ID,
-		// 	e.target as HTMLFormElement,
-		// 	process.env.NEXT_PUBLIC_USER_ID,
-		// );
-		// console.log(result.text);
+		const result = await emailjs.sendForm(
+			process.env.NEXT_PUBLIC_SERVICE_ID,
+			process.env.NEXT_PUBLIC_TEMPLATE_ID,
+			e.target as HTMLFormElement,
+			process.env.NEXT_PUBLIC_USER_ID,
+		);
+		console.log(result.text);
 		setOpen(true);
 	};
 
