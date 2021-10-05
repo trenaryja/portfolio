@@ -2,8 +2,9 @@ import { Alert, Box, Button, Container, Paper, Snackbar, TextField } from "@mui/
 import createStyles from "@mui/styles/createStyles";
 import makeStyles from "@mui/styles/makeStyles";
 import React, { FC, FormEvent, useState } from "react";
+import { getFormData, sendEmail } from "../utils/utils";
 import SectionHeader from "./SectionHeader";
-import emailjs from "emailjs-com";
+import Toast from "./Toast";
 
 const useStyles = makeStyles((theme) =>
 	createStyles({
@@ -27,31 +28,31 @@ const useStyles = makeStyles((theme) =>
 			display: "flex",
 			justifyContent: "space-around",
 		},
-		snackbar: {
-			[theme.breakpoints.up("sm")]: {
-				marginBottom: theme.spacing(8),
-			},
-			[theme.breakpoints.down("sm")]: {
-				marginBottom: theme.spacing(10),
-			},
-		},
 	}),
 );
 
 const Contact: FC = () => {
 	const [open, setOpen] = useState(false);
+	const [loading, setLoading] = useState(false);
+	const [error, setError] = useState(false);
 	const classes = useStyles();
+
+	const validateForm = (e: FormEvent) => {
+		const formData = getFormData(e);
+		return formData.message.length > 0;
+	};
 
 	const handleSubmit = async (e: FormEvent) => {
 		e.preventDefault();
-		const result = await emailjs.sendForm(
-			process.env.NEXT_PUBLIC_SERVICE_ID,
-			process.env.NEXT_PUBLIC_TEMPLATE_ID,
-			e.target as HTMLFormElement,
-			process.env.NEXT_PUBLIC_USER_ID,
-		);
-		console.log(result.text);
+		if (!validateForm(e)) {
+			setError(true);
+			return;
+		}
+		setError(false);
+		setLoading(true);
 		setOpen(true);
+		await sendEmail(e);
+		setLoading(false);
 	};
 
 	return (
@@ -66,7 +67,16 @@ const Contact: FC = () => {
 						<TextField fullWidth name="phoneNumber" label="Phone Number" />
 					</Box>
 					<Box>
-						<TextField name="message" label="Message" multiline={true} minRows={5} fullWidth />
+						<TextField
+							name="message"
+							label="Message"
+							multiline={true}
+							minRows={5}
+							fullWidth
+							required
+							error={error}
+							helperText={error && "Message is Required"}
+						/>
 					</Box>
 					<Box className={classes.buttons}>
 						<Button type="submit" variant="outlined">
@@ -75,20 +85,13 @@ const Contact: FC = () => {
 					</Box>
 				</form>
 			</Paper>
-			<Snackbar
-				className={classes.snackbar}
-				anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+			<Toast
+				loading={loading}
 				open={open}
-				autoHideDuration={1500}
 				onClose={() => setOpen(false)}
-				color="secondary"
-			>
-				<Paper sx={{ width: "100%" }}>
-					<Alert sx={{ width: "100%" }} variant="outlined">
-						Email Sent!
-					</Alert>
-				</Paper>
-			</Snackbar>
+				loadingText="Sending Email..."
+				successText="Email Sent!"
+			/>
 		</Container>
 	);
 };
