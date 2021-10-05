@@ -8,6 +8,9 @@ import Header from "./Header";
 import Footer from "./Footer";
 import BackToTop from "./BackToTop";
 import theme from "../styles/theme";
+import Particles from "react-tsparticles";
+
+import { options } from "../utils/particles.config";
 
 const useStyles = makeStyles(() =>
 	createStyles({
@@ -22,6 +25,7 @@ const useStyles = makeStyles(() =>
 			paddingTop: theme.spacing(5),
 			paddingBottom: theme.spacing(5),
 		},
+		particles: { opacity: 0.2, zIndex: -1 },
 	}),
 );
 
@@ -32,6 +36,7 @@ const Layout: FC = ({ children }) => {
 			<Header />
 			<main className={classes.main}>{children}</main>
 			<BackToTop />
+			<Particles options={options} className={classes.particles} />
 			<Footer />
 		</Box>
 	);
