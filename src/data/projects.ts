@@ -1,3 +1,5 @@
+import technologies, { Technology } from "./technologies";
+
 export type ProjectCardProps = {
 	title: string;
 	description: string;
@@ -6,6 +8,7 @@ export type ProjectCardProps = {
 		source: string;
 		img: string;
 	};
+	technologies?: Technology[];
 };
 
 const projects: ProjectCardProps[] = [
@@ -17,6 +20,13 @@ const projects: ProjectCardProps[] = [
 			source: "https://github.com/trenaryja/mathgasm",
 			img: "/screenshots/mathgasm.netlify.app_.png",
 		},
+		technologies: [
+			technologies.react,
+			technologies.javascript,
+			technologies.netlify,
+			technologies.gatsby,
+			technologies.mui,
+		],
 	},
 	{
 		title: "Noise Visualizer",
@@ -27,6 +37,13 @@ const projects: ProjectCardProps[] = [
 			source: "https://github.com/trenaryja/noise-generator",
 			img: "/screenshots/noise-visualizer.netlify.app_.png",
 		},
+		technologies: [
+			technologies.react,
+			technologies.javascript,
+			technologies.netlify,
+			technologies.gatsby,
+			technologies.mui,
+		],
 	},
 	{
 		title: "How Long Since?",
@@ -36,6 +53,13 @@ const projects: ProjectCardProps[] = [
 			source: "https://github.com/trenaryja/howlongsince",
 			img: "/screenshots/howlongsince.netlify.app_.png",
 		},
+		technologies: [
+			technologies.react,
+			technologies.javascript,
+			technologies.netlify,
+			technologies.gatsby,
+			technologies.mui,
+		],
 	},
 	{
 		title: "Material Color",
@@ -46,6 +70,7 @@ const projects: ProjectCardProps[] = [
 			source: "https://github.com/trenaryja/material-color",
 			img: "/screenshots/material-color.herokuapp.com_.png",
 		},
+		technologies: [technologies.react, technologies.javascript, technologies.heroku, technologies.mui],
 	},
 	{
 		title: "Portfolio",
@@ -56,6 +81,13 @@ const projects: ProjectCardProps[] = [
 			source: "https://github.com/trenaryja/portfolio",
 			img: "/screenshots/justintrenary.netlify.app_.png",
 		},
+		technologies: [
+			technologies.react,
+			technologies.typescript,
+			technologies.netlify,
+			technologies.next,
+			technologies.mui,
+		],
 	},
 ];
 

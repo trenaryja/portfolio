@@ -24,6 +24,7 @@ const Hero: FC = () => {
 		<Container className={classes.hero}>
 			<Box>
 				<Typography variant="h2">{"Hi! I'm Justin!"}</Typography>
+				<Image src="/logo.svg" alt="JT PI Logo" height={100} width={100} />
 				<Typography variant="h4">{"Welcome to my portfolio!"}</Typography>
 			</Box>
 			<Box>

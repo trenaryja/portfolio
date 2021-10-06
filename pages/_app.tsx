@@ -24,6 +24,7 @@ export default function MyApp(props: AppProps) {
 			<Head>
 				<title>Justin Trenary: Portfolio</title>
 				<meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+				<link rel="icon" type="image/svg+xml" href="/logo.svg"/>
 			</Head>
 			<StyledEngineProvider injectFirst>
 				<ThemeProvider theme={theme}>

@@ -21,7 +21,6 @@ const useStyles = makeStyles(() =>
 		},
 		main: {
 			display: "grid",
-			gap: theme.spacing(5),
 			paddingTop: theme.spacing(5),
 			paddingBottom: theme.spacing(5),
 		},
