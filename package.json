@@ -9,22 +9,22 @@
 		"pretty": "prettier -w ."
 	},
 	"dependencies": {
-		"@emotion/react": "^11.4.1",
+		"@emotion/react": "^11.5.0",
 		"@emotion/styled": "^11.3.0",
-		"@mui/material": "^5.0.2",
-		"@mui/styles": "^5.0.1",
+		"@mui/material": "^5.0.5",
+		"@mui/styles": "^5.0.2",
 		"emailjs-com": "^3.2.0",
-		"next": "^11.1.2",
+		"next": "^12.0.0",
 		"react": "17.0.2",
 		"react-dom": "17.0.2",
 		"react-icons": "^4.3.1",
-		"react-tsparticles": "^1.35.4"
+		"react-tsparticles": "^1.36.0"
 	},
 	"devDependencies": {
-		"@types/react": "17.0.27",
-		"eslint": "7.32.0",
-		"eslint-config-next": "11.1.2",
+		"@types/react": "17.0.33",
+		"eslint": "8.1.0",
+		"eslint-config-next": "12.0.0",
 		"prettier": "2.4.1",
-		"typescript": "4.4.3"
+		"typescript": "4.4.4"
 	}
 }

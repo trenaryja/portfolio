@@ -24,11 +24,11 @@ const Hero: FC = () => {
 		<Container className={classes.hero}>
 			<Box>
 				<Typography variant="h2">{"Hi! I'm Justin!"}</Typography>
-				<Image src="/logo.svg" alt="JT PI Logo" height={100} width={100} />
+				<Image priority src="/logo.svg" alt="JT PI Logo" height={100} width={100} />
 				<Typography variant="h4">{"Welcome to my portfolio!"}</Typography>
 			</Box>
 			<Box>
-				<Image src="/bitmoji-face.png" alt="bitmoji of Justin" width={300} height={300} />
+				<Image priority src="/bitmoji-face.png" alt="bitmoji of Justin" width={300} height={300} />
 			</Box>
 		</Container>
 	);
