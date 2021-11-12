@@ -1,9 +1,9 @@
-import { Alert, Paper, Snackbar } from "@mui/material";
+import { Alert, Paper, Snackbar, Theme } from "@mui/material";
 import createStyles from "@mui/styles/createStyles";
 import makeStyles from "@mui/styles/makeStyles";
 import React, { FC } from "react";
 
-const useStyles = makeStyles((theme) =>
+const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
 		snackbar: {
 			[theme.breakpoints.up("sm")]: {

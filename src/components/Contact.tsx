@@ -1,4 +1,4 @@
-import { Box, Button, Container, Paper, TextField } from "@mui/material";
+import { Box, Button, Container, Paper, TextField, Theme } from "@mui/material";
 import createStyles from "@mui/styles/createStyles";
 import makeStyles from "@mui/styles/makeStyles";
 import React, { FC, FormEvent, useState } from "react";
@@ -6,7 +6,7 @@ import { getFormData, sendEmail } from "../utils/utils";
 import SectionHeader from "./SectionHeader";
 import Toast from "./Toast";
 
-const useStyles = makeStyles((theme) =>
+const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
 		headerFields: {
 			display: "grid",

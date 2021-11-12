@@ -1,4 +1,4 @@
-import { Container } from "@mui/material";
+import { Container, Theme } from "@mui/material";
 import createStyles from "@mui/styles/createStyles";
 import makeStyles from "@mui/styles/makeStyles";
 import React, { FC } from "react";
@@ -6,7 +6,7 @@ import ProjectCard from "./ProjectCard";
 import projects, { ProjectCardProps } from "../data/projects";
 import SectionHeader from "./SectionHeader";
 
-const useStyles = makeStyles((theme) =>
+const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
 		grid: {
 			display: "grid",

@@ -1,11 +1,22 @@
-import { Box, Button, Card, CardActions, CardHeader, CardContent, Typography, CardMedia, Chip } from "@mui/material";
+import {
+	Box,
+	Button,
+	Card,
+	CardActions,
+	CardHeader,
+	CardContent,
+	Typography,
+	CardMedia,
+	Chip,
+	Theme,
+} from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
 import createStyles from "@mui/styles/createStyles";
 import React, { FC } from "react";
 import Image from "next/image";
 import { ProjectCardProps } from "../data/projects";
 
-const useStyles = makeStyles((theme) =>
+const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
 		card: {
 			display: "flex",

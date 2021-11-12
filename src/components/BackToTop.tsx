@@ -1,4 +1,4 @@
-import { Fab } from "@mui/material";
+import { Fab, Theme } from "@mui/material";
 import createStyles from "@mui/styles/createStyles";
 import makeStyles from "@mui/styles/makeStyles";
 import React, { FC, useEffect, useState } from "react";
@@ -6,7 +6,7 @@ import { FaArrowUp } from "react-icons/fa";
 import { scrollToTop } from "../utils/utils";
 import theme from "../styles/theme";
 
-const useStyles = makeStyles((theme) =>
+const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
 		backToTop: {
 			position: "fixed",
