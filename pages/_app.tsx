@@ -6,7 +6,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import theme from "../src/styles/theme";
 
 declare module "@mui/styles/defaultTheme" {
-	interface DefaultTheme extends Theme {}
+	type DefaultTheme = Theme;
 }
 
 export default function MyApp(props: AppProps) {
@@ -15,7 +15,7 @@ export default function MyApp(props: AppProps) {
 	React.useEffect(() => {
 		const jssStyles = document.querySelector("#jss-server-side");
 		if (jssStyles) {
-			jssStyles.parentElement!.removeChild(jssStyles);
+			jssStyles.parentElement?.removeChild(jssStyles);
 		}
 	}, []);
 
@@ -24,7 +24,7 @@ export default function MyApp(props: AppProps) {
 			<Head>
 				<title>Justin Trenary: Portfolio</title>
 				<meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
-				<link rel="icon" type="image/svg+xml" href="/logo.svg"/>
+				<link rel="icon" type="image/svg+xml" href="/logo.svg" />
 			</Head>
 			<StyledEngineProvider injectFirst>
 				<ThemeProvider theme={theme}>

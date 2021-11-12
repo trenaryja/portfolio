@@ -1,7 +1,7 @@
 import { Alert, Paper, Snackbar } from "@mui/material";
 import createStyles from "@mui/styles/createStyles";
 import makeStyles from "@mui/styles/makeStyles";
-import React, { FC, FormEvent, useState } from "react";
+import React, { FC } from "react";
 
 const useStyles = makeStyles((theme) =>
 	createStyles({
@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) =>
 export type ToastProps = {
 	loading: boolean;
 	open: boolean;
-	onClose: Function;
+	onClose: () => void;
 	loadingText: string;
 	successText: string;
 };

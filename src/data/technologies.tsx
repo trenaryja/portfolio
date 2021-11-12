@@ -1,43 +1,52 @@
-import { SiReact, SiGatsby, SiNetlify, SiNextdotjs, SiTypescript, SiMaterialui, SiJavascript, SiHeroku } from "react-icons/si";
+import {
+	SiReact,
+	SiGatsby,
+	SiNetlify,
+	SiNextdotjs,
+	SiTypescript,
+	SiMaterialui,
+	SiJavascript,
+	SiHeroku,
+} from "react-icons/si";
 
 export type Technology = {
 	name: string;
 	icon: JSX.Element;
-}
+};
 
 const technologies = {
 	react: {
 		name: "React",
-		icon: <SiReact/>
-	},	
+		icon: <SiReact />,
+	},
 	typescript: {
 		name: "TypeScript",
-		icon: <SiTypescript/>,
+		icon: <SiTypescript />,
 	},
 	javascript: {
 		name: "JavaScript",
-		icon: <SiJavascript/>,
+		icon: <SiJavascript />,
 	},
 	netlify: {
 		name: "Netlify",
-		icon: <SiNetlify/>,
+		icon: <SiNetlify />,
 	},
 	next: {
 		name: "Next.js",
-		icon: <SiNextdotjs/>,
+		icon: <SiNextdotjs />,
 	},
 	mui: {
 		name: "Material UI",
-		icon: <SiMaterialui/>,
+		icon: <SiMaterialui />,
 	},
 	heroku: {
 		name: "Heroku",
-		icon: <SiHeroku/>,
+		icon: <SiHeroku />,
 	},
 	gatsby: {
 		name: "Gatsby",
-		icon: <SiGatsby/>
-	}
+		icon: <SiGatsby />,
+	},
 };
 
 export default technologies;
