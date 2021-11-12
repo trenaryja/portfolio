@@ -7,6 +7,7 @@ import {
 	SiMaterialui,
 	SiJavascript,
 	SiHeroku,
+	SiChakraui,
 } from "react-icons/si";
 
 export type Technology = {
@@ -46,6 +47,10 @@ const technologies = {
 	gatsby: {
 		name: "Gatsby",
 		icon: <SiGatsby />,
+	},
+	chakra: {
+		name: "Chakra UI",
+		icon: <SiChakraui />,
 	},
 };
 

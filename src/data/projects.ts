@@ -73,6 +73,23 @@ const projects: ProjectCardProps[] = [
 		technologies: [technologies.react, technologies.javascript, technologies.heroku, technologies.mui],
 	},
 	{
+		title: "Percent Calculator",
+		description:
+			"This is a simple web app that I built for my girlfriend to use at work, because she hates trying to figure out percentages using a regular calculator. Made in one night, and using Chakra UI for the first time!",
+		links: {
+			visit: "https://perfectpercent.netlify.app/",
+			source: "https://github.com/trenaryja/percent-calculator",
+			img: "/screenshots/perfectpercent.netlify.app_.png",
+		},
+		technologies: [
+			technologies.react,
+			technologies.typescript,
+			technologies.netlify,
+			technologies.next,
+			technologies.chakra,
+		],
+	},
+	{
 		title: "Portfolio",
 		description:
 			"You're looking at it! If you'd like to check out the code that drives this site, click the Source button below and have a look around!",
