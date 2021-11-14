@@ -10,8 +10,8 @@
 		"lint": "npx eslint --fix **/*.{js,jsx,ts,tsx,css} --ignore-path .gitignore"
 	},
 	"dependencies": {
-		"@emotion/react": "^11.5.0",
-		"@emotion/styled": "^11.3.0",
+		"@emotion/react": "^11.6.0",
+		"@emotion/styled": "^11.6.0",
 		"@mui/material": "^5.1.0",
 		"@mui/styles": "^5.1.0",
 		"emailjs-com": "^3.2.0",
