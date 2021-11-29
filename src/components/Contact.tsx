@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
 		headerFields: {
 			display: "grid",
-			gap: theme.spacing(1),
+			gap: theme.spacing(3),
 			[theme.breakpoints.up("sm")]: {
 				gridTemplateColumns: "1fr 1fr",
 			},
@@ -21,8 +21,8 @@ const useStyles = makeStyles((theme: Theme) =>
 		form: {
 			display: "grid",
 			gridAutoFlow: "row",
-			gap: theme.spacing(1),
-			padding: theme.spacing(1),
+			gap: theme.spacing(3),
+			padding: theme.spacing(3),
 		},
 		buttons: {
 			display: "flex",

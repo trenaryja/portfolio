@@ -26,6 +26,7 @@ const useStyles = makeStyles((theme: Theme) =>
 		actions: {
 			marginTop: "auto",
 			alignSelf: "center",
+			paddingBottom: theme.spacing(2),
 		},
 		chipbox: {
 			textAlign: "center",
