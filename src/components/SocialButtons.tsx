@@ -17,7 +17,7 @@ const SocialButtons: FC = () => {
 			<Button href="https://www.linkedin.com/in/justintrenary/">
 				<FaLinkedin {...iconProps} />
 			</Button>
-			<Button href="https://codepen.io/trenaryja-the-looper">
+			<Button href="https://codepen.io/jtrenary">
 				<FaCodepen {...iconProps} />
 			</Button>
 		</ButtonGroup>
