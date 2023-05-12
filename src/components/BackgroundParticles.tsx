@@ -12,7 +12,6 @@ export const BackgroundParticles = () => {
       options={{
         style: { opacity: '0.25' },
         fpsLimit: 60,
-        fullScreen: true,
         particles: {
           links: { enable: true, distance: 150 },
           move: { enable: true, random: true },

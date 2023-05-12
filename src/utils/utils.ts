@@ -35,3 +35,24 @@ export function getFormData(e: FormEvent) {
       return result
     }, {})
 }
+
+export const particleOptions = {
+  fullScreen: {
+    enable: true,
+  },
+  particles: {
+    links: {
+      distance: 150,
+      enable: true,
+    },
+    move: {
+      enable: true,
+    },
+    size: {
+      value: 1,
+    },
+    shape: {
+      type: 'circle',
+    },
+  },
+}

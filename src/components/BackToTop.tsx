@@ -1,22 +1,9 @@
-import { Fab, Theme } from '@mui/material'
-import { createStyles, makeStyles } from '@mui/styles'
+import { Button } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
 import { FaArrowUp } from 'react-icons/fa'
-import theme from '../styles/theme'
-import { scrollToTop } from '../utils/utils'
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    backToTop: {
-      position: 'fixed',
-      bottom: theme.spacing(2),
-      right: theme.spacing(2),
-    },
-  }),
-)
+import { scrollToTop } from '../utils'
 
 export const BackToTop = () => {
-  const classes = useStyles()
   const [isVisible, setIsVisible] = useState(false)
   const toggleVisibility = () => setIsVisible(window.pageYOffset > 500)
 
@@ -27,9 +14,9 @@ export const BackToTop = () => {
 
   if (isVisible)
     return (
-      <Fab color="primary" onClick={scrollToTop} className={classes.backToTop}>
-        <FaArrowUp color={theme.palette.text.primary} />
-      </Fab>
+      <Button position="fixed" bottom={10} right={10} variant="outline" onClick={scrollToTop}>
+        <FaArrowUp />
+      </Button>
     )
   else return null
 }

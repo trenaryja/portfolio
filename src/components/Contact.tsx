@@ -1,95 +1,53 @@
-import { Box, Button, Container, Paper, TextField, Theme } from '@mui/material'
-import { createStyles, makeStyles } from '@mui/styles'
-import { FormEvent, useState } from 'react'
-import { SectionHeader, Toast } from '.'
-import { getFormData, sendEmail } from '../utils/utils'
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    headerFields: {
-      display: 'grid',
-      gap: theme.spacing(3),
-      [theme.breakpoints.up('sm')]: {
-        gridTemplateColumns: '1fr 1fr',
-      },
-      [theme.breakpoints.down('sm')]: {
-        gridTemplateColumns: '1fr',
-      },
-    },
-    form: {
-      display: 'grid',
-      gridAutoFlow: 'row',
-      gap: theme.spacing(3),
-      padding: theme.spacing(3),
-    },
-    buttons: {
-      display: 'flex',
-      justifyContent: 'space-around',
-    },
-  }),
-)
+import { Button, Card, CardBody, FormControl, Grid, Input, Textarea, useToast } from '@chakra-ui/react'
+import { FormEvent } from 'react'
+import { sendEmail } from '../utils'
 
 export const Contact = () => {
-  const [open, setOpen] = useState(false)
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(false)
-  const classes = useStyles()
-
-  const validateForm = (e: FormEvent) => {
-    const formData = getFormData(e)
-    return formData.message.length > 0
-  }
+  const toast = useToast()
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
-    if (!validateForm(e)) {
-      setError(true)
-      return
+    try {
+      await sendEmail(e)
+      toast({
+        title: 'Email Sent!',
+        description: 'I will get back to you as soon as possible.',
+        status: 'success',
+      })
+    } catch (error) {
+      toast({
+        title: 'An error occurred.',
+        description: 'Unable to send email. Please try again later.',
+        status: 'error',
+      })
     }
-    setError(false)
-    setLoading(true)
-    setOpen(true)
-    await sendEmail(e)
-    setLoading(false)
   }
 
   return (
-    <Container>
-      <SectionHeader id="contact" text="Contact" />
-      <Paper>
-        <form id="contactForm" noValidate className={classes.form} onSubmit={handleSubmit}>
-          <Box className={classes.headerFields}>
-            <TextField fullWidth name="firstName" label="First Name" />
-            <TextField fullWidth name="lastName" label="Last Name" />
-            <TextField fullWidth name="email" label="Email Address" />
-            <TextField fullWidth name="phoneNumber" label="Phone Number" />
-          </Box>
-          <Box>
-            <TextField
-              name="message"
-              label="Message"
-              multiline={true}
-              minRows={5}
-              fullWidth
-              required
-              error={error}
-              helperText={error && 'Message is Required'}
-            />
-          </Box>
-          <Box className={classes.buttons}>
-            <Button type="submit" variant="outlined">
+    <Card bg="blackAlpha.500">
+      <CardBody>
+        <FormControl>
+          <Grid
+            templateAreas={{
+              base: "'firstName' 'lastName' 'email' 'phoneNumber' 'message' 'submit'",
+              md: "'firstName lastName' 'email phoneNumber' 'message message' 'submit submit'",
+            }}
+            as="form"
+            id="contactForm"
+            onSubmit={handleSubmit}
+            gap={5}
+          >
+            <Input required name="firstName" gridArea="firstName" placeholder="First Name" />
+            <Input required name="lastName" gridArea="lastName" placeholder="Last Name" />
+            <Input required name="email" gridArea="email" placeholder="Email" />
+            <Input name="phoneNumber" gridArea="phoneNumber" placeholder="Phone Number" />
+            <Textarea required name="message" gridArea="message" placeholder="Message" />
+            <Button gridArea="submit" type="submit">
               Send
             </Button>
-          </Box>
-        </form>
-      </Paper>
-      <Toast
-        loading={loading}
-        open={open}
-        onClose={() => setOpen(false)}
-        loadingText="Sending Email..."
-        successText="Email Sent!"
-      />
-    </Container>
+          </Grid>
+        </FormControl>
+      </CardBody>
+    </Card>
   )
 }

@@ -103,7 +103,7 @@ const projects: ProjectCardProps[] = [
       technologies.typescript,
       technologies.netlify,
       technologies.next,
-      technologies.mui,
+      technologies.chakra,
     ],
   },
 ]

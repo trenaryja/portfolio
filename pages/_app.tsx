@@ -1,35 +1,35 @@
-import CssBaseline from '@mui/material/CssBaseline'
-import { StyledEngineProvider, ThemeProvider } from '@mui/material/styles'
+import { ChakraProvider, extendTheme } from '@chakra-ui/react'
 import { AppProps } from 'next/app'
-import Head from 'next/head'
-import { useEffect } from 'react'
-import { BackgroundParticles } from '../src/components'
-import theme from '../src/styles/theme'
+import { Rubik } from 'next/font/google'
+import { BackToTop, BackgroundParticles } from '../src/components'
 
-export default function MyApp(props: AppProps) {
-  const { Component, pageProps } = props
+const rubik = Rubik({ subsets: ['latin'] })
 
-  useEffect(() => {
-    const jssStyles = document.querySelector('#jss-server-side')
-    if (jssStyles) {
-      jssStyles.parentElement?.removeChild(jssStyles)
-    }
-  }, [])
+export const theme = extendTheme({
+  config: { initialColorMode: 'dark' },
+  fonts: {
+    heading: 'var(--font-rubik)',
+    body: 'var(--font-rubik)',
+  },
+})
 
+const App = ({ Component, pageProps }: AppProps) => {
   return (
     <>
-      <Head>
-        <title>Justin Trenary: Portfolio</title>
-        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
-        <link rel="icon" type="image/svg+xml" href="/logo.svg" />
-      </Head>
-      <StyledEngineProvider injectFirst>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <BackgroundParticles />
-          <Component {...pageProps} />
-        </ThemeProvider>
-      </StyledEngineProvider>
+      <style jsx global>
+        {`
+          :root {
+            --font-rubik: ${rubik.style.fontFamily};
+          }
+        `}
+      </style>
+      <ChakraProvider theme={theme}>
+        <BackgroundParticles />
+        <BackToTop />
+        <Component {...pageProps} />
+      </ChakraProvider>
     </>
   )
 }
+
+export default App

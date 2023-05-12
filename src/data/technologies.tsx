@@ -1,3 +1,4 @@
+import { IconType } from 'react-icons'
 import {
   SiChakraui,
   SiGatsby,
@@ -12,45 +13,45 @@ import {
 
 export type Technology = {
   name: string
-  icon: JSX.Element
+  icon: IconType
 }
 
 const technologies = {
   react: {
     name: 'React',
-    icon: <SiReact />,
+    icon: SiReact,
   },
   typescript: {
     name: 'TypeScript',
-    icon: <SiTypescript />,
+    icon: SiTypescript,
   },
   javascript: {
     name: 'JavaScript',
-    icon: <SiJavascript />,
+    icon: SiJavascript,
   },
   netlify: {
     name: 'Netlify',
-    icon: <SiNetlify />,
+    icon: SiNetlify,
   },
   next: {
     name: 'Next.js',
-    icon: <SiNextdotjs />,
+    icon: SiNextdotjs,
   },
   mui: {
     name: 'Material UI',
-    icon: <SiMui />,
+    icon: SiMui,
   },
   heroku: {
     name: 'Heroku',
-    icon: <SiHeroku />,
+    icon: SiHeroku,
   },
   gatsby: {
     name: 'Gatsby',
-    icon: <SiGatsby />,
+    icon: SiGatsby,
   },
   chakra: {
     name: 'Chakra UI',
-    icon: <SiChakraui />,
+    icon: SiChakraui,
   },
 }
 
