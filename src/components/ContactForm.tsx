@@ -1,8 +1,9 @@
 import { Button, Card, CardBody, FormControl, Grid, Input, Textarea, useToast } from '@chakra-ui/react'
 import { FormEvent } from 'react'
+import { MdSend } from 'react-icons/md'
 import { sendEmail } from '../utils'
 
-export const Contact = () => {
+export const ContactForm = () => {
   const toast = useToast()
 
   const handleSubmit = async (e: FormEvent) => {
@@ -15,6 +16,7 @@ export const Contact = () => {
         status: 'success',
       })
     } catch (error) {
+      console.error(error)
       toast({
         title: 'An error occurred.',
         description: 'Unable to send email. Please try again later.',
@@ -42,7 +44,7 @@ export const Contact = () => {
             <Input required name="email" gridArea="email" placeholder="Email" />
             <Input name="phoneNumber" gridArea="phoneNumber" placeholder="Phone Number" />
             <Textarea required name="message" gridArea="message" placeholder="Message" />
-            <Button gridArea="submit" type="submit">
+            <Button w="fit-content" m="auto" gridArea="submit" type="submit" rightIcon={<MdSend />}>
               Send
             </Button>
           </Grid>

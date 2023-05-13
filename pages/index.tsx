@@ -1,5 +1,5 @@
 import { Button, Flex, Grid, GridProps, Heading, Text } from '@chakra-ui/react'
-import { Contact, Hero, MadeWithLove, ProjectList, SocialButtons } from '../src/components'
+import { ContactForm, Hero, ProjectList, SocialButtons } from '../src/components'
 import { scrollTo } from '../src/utils'
 
 const PageWrapper = (props: GridProps) => (
@@ -19,7 +19,7 @@ const Header = () => (
 const Footer = () => (
   <Flex as="footer" p={5} bg="blackAlpha.500" justify="center">
     <Flex justify="center" p={10} gap={10}>
-      <MadeWithLove />
+      <Text textAlign="center">Made with 🤍 by Justin Trenary</Text>
       <SocialButtons />
     </Flex>
   </Flex>
@@ -37,13 +37,15 @@ const Main = (props: GridProps) => (
 
 // const FullBleed = (props: GridProps) => <Grid gridColumn="1/-1" {...props} />
 
-const Index = () => {
+export default function Index() {
   return (
     <PageWrapper>
       <Header />
       <Main>
-        <Heading id="about">About</Heading>
         <Hero />
+        <Heading py={3} id="about">
+          About
+        </Heading>
         <Text>
           I am a full stack software engineer with experience working in the government contracting industry. My
           interests in software are wide, ranging from backend technologies such as GraphQL, to front end technologies
@@ -52,14 +54,16 @@ const Index = () => {
           looking for opportunities to continue learning new technologies and make meaningful contributions to a team at
           the company I work for!
         </Text>
-        <Heading id="projects">Projects</Heading>
+        <Heading py={3} id="projects">
+          Projects
+        </Heading>
         <ProjectList />
-        <Heading id="contact">Contact</Heading>
-        <Contact />
+        <Heading py={3} id="contact">
+          Contact
+        </Heading>
+        <ContactForm />
       </Main>
       <Footer />
     </PageWrapper>
   )
 }
-
-export default Index

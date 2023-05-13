@@ -14,7 +14,7 @@ export const BackToTop = () => {
 
   if (isVisible)
     return (
-      <Button position="fixed" bottom={10} right={10} variant="outline" onClick={scrollToTop}>
+      <Button position="fixed" zIndex="toast" bottom={10} right={10} variant="outline" onClick={scrollToTop}>
         <FaArrowUp />
       </Button>
     )

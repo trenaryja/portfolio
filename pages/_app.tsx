@@ -1,35 +1,23 @@
-import { ChakraProvider, extendTheme } from '@chakra-ui/react'
+import { Box, ChakraProvider } from '@chakra-ui/react'
 import { AppProps } from 'next/app'
-import { Rubik } from 'next/font/google'
+import Head from 'next/head'
 import { BackToTop, BackgroundParticles } from '../src/components'
+import { theme } from '../src/utils'
 
-const rubik = Rubik({ subsets: ['latin'] })
-
-export const theme = extendTheme({
-  config: { initialColorMode: 'dark' },
-  fonts: {
-    heading: 'var(--font-rubik)',
-    body: 'var(--font-rubik)',
-  },
-})
-
-const App = ({ Component, pageProps }: AppProps) => {
+export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <style jsx global>
-        {`
-          :root {
-            --font-rubik: ${rubik.style.fontFamily};
-          }
-        `}
-      </style>
+      <Head>
+        <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+        <title>Justin Trenary: Portfolio</title>
+      </Head>
       <ChakraProvider theme={theme}>
         <BackgroundParticles />
         <BackToTop />
-        <Component {...pageProps} />
+        <Box position="relative">
+          <Component {...pageProps} />
+        </Box>
       </ChakraProvider>
     </>
   )
 }
-
-export default App
