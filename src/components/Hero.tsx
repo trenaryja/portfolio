@@ -1,37 +1,43 @@
-import { Box, Container, Theme, Typography } from "@mui/material";
-import createStyles from "@mui/styles/createStyles";
-import makeStyles from "@mui/styles/makeStyles";
-import React, { FC } from "react";
-import Image from "next/image";
+import { Grid, Heading, Image, ImageProps, useBoolean, useBreakpointValue, useInterval } from '@chakra-ui/react'
 
-const useStyles = makeStyles((theme: Theme) =>
-	createStyles({
-		hero: {
-			display: "flex",
-			justifyContent: "space-around",
-			alignItems: "center",
-			textAlign: "center",
-			[theme.breakpoints.down("sm")]: {
-				flexDirection: "column",
-			},
-		},
-	}),
-);
+const duration = 3
 
-const Hero: FC = () => {
-	const classes = useStyles();
-	return (
-		<Container className={classes.hero}>
-			<Box>
-				<Typography variant="h2">{"Hi! I'm Justin!"}</Typography>
-				<Image priority src="/logo.svg" alt="JT PI Logo" height={100} width={100} />
-				<Typography variant="h4">{"Welcome to my portfolio!"}</Typography>
-			</Box>
-			<Box>
-				<Image priority src="/bitmoji-face.png" alt="bitmoji of Justin" width={300} height={300} />
-			</Box>
-		</Container>
-	);
-};
+const Face = ({ show, ...props }: ImageProps & { show: boolean }) => {
+  return (
+    <Image
+      p={5}
+      fit="cover"
+      width="100%"
+      borderRadius="full"
+      aspectRatio="1/1"
+      gridArea="x"
+      transition={`all ${duration / 4}s ease-in-out`}
+      opacity={show ? 1 : 0}
+      alt={props.alt ?? ''}
+      {...props}
+    />
+  )
+}
 
-export default Hero;
+export const Hero = () => {
+  const [showBitmoji, setShowBitmoji] = useBoolean(true)
+
+  useInterval(() => {
+    setShowBitmoji.toggle()
+  }, duration * 1000)
+
+  const autoFlow = useBreakpointValue({ base: 'row', md: 'column' })
+  return (
+    <Grid autoFlow={autoFlow} placeItems="center" gap={10}>
+      <Grid placeItems="center" gap={5} textAlign="center">
+        <Heading size="3xl">Hi! I'm Justin!</Heading>
+        <Image width="5rem" src="/logo.svg" alt="JT PI Logo" />
+        <Heading>Welcome to my portfolio!</Heading>
+      </Grid>
+      <Grid templateAreas="x" placeItems="center">
+        <Face src="/Bitmoji.webp" alt="Bitmoji of Justin" show={showBitmoji} />
+        <Face src="/Justin.webp" alt="Justin" show={!showBitmoji} />
+      </Grid>
+    </Grid>
+  )
+}
