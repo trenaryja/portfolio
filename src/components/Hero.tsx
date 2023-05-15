@@ -34,7 +34,7 @@ export const Hero = () => {
         <Image width="5rem" src="/logo.svg" alt="JT PI Logo" />
         <Heading>Welcome to my portfolio!</Heading>
       </Grid>
-      <Grid templateAreas="x" placeItems="center">
+      <Grid maxW={400} templateAreas="x" placeItems="center">
         <Face src="/Bitmoji.webp" alt="Bitmoji of Justin" show={showBitmoji} />
         <Face src="/Justin.webp" alt="Justin" show={!showBitmoji} />
       </Grid>

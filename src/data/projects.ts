@@ -13,6 +13,7 @@ import {
   SiStorybook,
   SiTwilio,
   SiTypescript,
+  SiVercel,
 } from 'react-icons/si'
 import { TbBrandMantine } from 'react-icons/tb'
 
@@ -45,6 +46,7 @@ const tech: Record<string, Technology> = {
   storybook: { name: 'Storybook', icon: SiStorybook },
   mantine: { name: 'Mantine', icon: TbBrandMantine },
   twilio: { name: 'Twilio', icon: SiTwilio },
+  vercel: { name: 'Vercel', icon: SiVercel },
 } as const
 
 export const projects: Project[] = [
@@ -131,6 +133,6 @@ export const projects: Project[] = [
       source: 'https://github.com/trenaryja/portfolio',
       img: '/screenshots/justintrenary.netlify.app_.webp',
     },
-    tech: [tech.react, tech.typescript, tech.netlify, tech.next, tech.chakra],
+    tech: [tech.react, tech.typescript, tech.vercel, tech.next, tech.chakra],
   },
 ]

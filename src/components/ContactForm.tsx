@@ -26,7 +26,7 @@ export const ContactForm = () => {
   }
 
   return (
-    <Card bg="blackAlpha.500">
+    <Card variant="outline" bg="blackAlpha.500">
       <CardBody>
         <FormControl>
           <Grid

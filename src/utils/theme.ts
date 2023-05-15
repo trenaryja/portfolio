@@ -9,4 +9,11 @@ export const theme = extendTheme({
     heading: rubik.style.fontFamily,
     body: rubik.style.fontFamily,
   },
+  styles: {
+    global: {
+      body: {
+        bg: 'blackAlpha.50',
+      },
+    },
+  },
 })
