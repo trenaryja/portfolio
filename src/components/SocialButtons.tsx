@@ -1,19 +1,23 @@
-import { Flex, Link } from '@chakra-ui/react'
+import { Flex, FlexProps, Link, useBreakpointValue } from '@chakra-ui/react'
 import NextLink from 'next/link'
 import { FaCodepen, FaGithub, FaLinkedin } from 'react-icons/fa'
 
 const size = '1.5rem'
 
-export const SocialButtons = () => (
-  <Flex gap={5}>
-    <Link as={NextLink} href="https://github.com/trenaryja">
-      <FaGithub size={size} />
-    </Link>
-    <Link as={NextLink} href="https://www.linkedin.com/in/justintrenary/">
-      <FaLinkedin size={size} />
-    </Link>
-    <Link as={NextLink} href="https://codepen.io/jtrenary">
-      <FaCodepen size={size} />
-    </Link>
-  </Flex>
-)
+export const SocialButtons = () => {
+  const flexDirection = useBreakpointValue<FlexProps['flexDirection']>({ base: 'column', md: 'row' })
+
+  return (
+    <Flex gap={5} flexDirection={flexDirection}>
+      <Link as={NextLink} href="https://github.com/trenaryja">
+        <FaGithub size={size} />
+      </Link>
+      <Link as={NextLink} href="https://www.linkedin.com/in/justintrenary/">
+        <FaLinkedin size={size} />
+      </Link>
+      <Link as={NextLink} href="https://codepen.io/jtrenary">
+        <FaCodepen size={size} />
+      </Link>
+    </Flex>
+  )
+}

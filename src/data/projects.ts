@@ -4,13 +4,16 @@ import { IconType } from 'react-icons'
 import {
   SiChakraui,
   SiGatsby,
+  SiGithub,
   SiHeroku,
   SiJavascript,
   SiMui,
   SiNetlify,
   SiNextdotjs,
+  SiPrisma,
   SiReact,
   SiStorybook,
+  SiSupabase,
   SiTwilio,
   SiTypescript,
   SiVercel,
@@ -33,7 +36,7 @@ export type Project = {
   tech?: Technology[]
 }
 
-const tech: Record<string, Technology> = {
+const techs = {
   react: { name: 'React', icon: SiReact },
   typescript: { name: 'TypeScript', icon: SiTypescript },
   javascript: { name: 'JavaScript', icon: SiJavascript },
@@ -47,6 +50,9 @@ const tech: Record<string, Technology> = {
   mantine: { name: 'Mantine', icon: TbBrandMantine },
   twilio: { name: 'Twilio', icon: SiTwilio },
   vercel: { name: 'Vercel', icon: SiVercel },
+  supabase: { name: 'Supabase', icon: SiSupabase },
+  prisma: { name: 'Prisma', icon: SiPrisma },
+  githubPages: { name: 'Github Pages', icon: SiGithub },
 } as const
 
 export const projects: Project[] = [
@@ -58,7 +64,7 @@ export const projects: Project[] = [
       source: 'https://github.com/trenaryja/ui',
       img: '/screenshots/trenaryja.github.io_ui_.webp',
     },
-    tech: [tech.react, tech.typescript, tech.storybook, tech.mantine],
+    tech: [techs.react, techs.typescript, techs.storybook, techs.mantine, techs.githubPages],
   },
   {
     title: 'Trenary.love',
@@ -69,18 +75,28 @@ export const projects: Project[] = [
       source: 'https://github.com/trenaryja/wedding-site',
       img: '/screenshots/trenary.love_.webp',
     },
-    tech: [tech.react, tech.typescript, tech.netlify, tech.chakra, tech.mantine, tech.twilio, tech.next],
+    tech: [
+      techs.react,
+      techs.typescript,
+      techs.netlify,
+      techs.chakra,
+      techs.mantine,
+      techs.twilio,
+      techs.next,
+      techs.supabase,
+      techs.prisma,
+    ],
   },
   {
     title: 'Percent Calculator',
     description:
       'This is a simple web app that I built for my girlfriend to use at work, because she hates trying to figure out percentages using a regular calculator. Made in one night, and using Chakra UI for the first time!',
     links: {
-      visit: 'https://perfectpercent.netlify.app/',
+      visit: 'https://perfectpercent.vercel.app/',
       source: 'https://github.com/trenaryja/percent-calculator',
       img: '/screenshots/perfectpercent.netlify.app_.webp',
     },
-    tech: [tech.react, tech.typescript, tech.netlify, tech.next, tech.chakra],
+    tech: [techs.react, techs.typescript, techs.vercel, techs.next, techs.chakra],
   },
   {
     title: 'Mathgasm',
@@ -90,7 +106,7 @@ export const projects: Project[] = [
       source: 'https://github.com/trenaryja/mathgasm',
       img: '/screenshots/mathgasm.netlify.app_.webp',
     },
-    tech: [tech.react, tech.javascript, tech.netlify, tech.gatsby, tech.mui],
+    tech: [techs.react, techs.javascript, techs.netlify, techs.gatsby, techs.mui],
   },
   {
     title: 'Noise Visualizer',
@@ -101,7 +117,7 @@ export const projects: Project[] = [
       source: 'https://github.com/trenaryja/noise-generator',
       img: '/screenshots/noise-visualizer.netlify.app_.webp',
     },
-    tech: [tech.react, tech.javascript, tech.netlify, tech.gatsby, tech.mui],
+    tech: [techs.react, techs.javascript, techs.netlify, techs.gatsby, techs.mui],
   },
   {
     title: 'How Long Since?',
@@ -111,7 +127,7 @@ export const projects: Project[] = [
       source: 'https://github.com/trenaryja/howlongsince',
       img: '/screenshots/howlongsince.netlify.app_.webp',
     },
-    tech: [tech.react, tech.javascript, tech.netlify, tech.gatsby, tech.mui],
+    tech: [techs.react, techs.javascript, techs.netlify, techs.gatsby, techs.mui],
   },
   {
     title: 'Material Color',
@@ -122,7 +138,7 @@ export const projects: Project[] = [
       source: 'https://github.com/trenaryja/material-color',
       img: '/screenshots/material-color.herokuapp.com_.webp',
     },
-    tech: [tech.react, tech.javascript, tech.heroku, tech.mui],
+    tech: [techs.react, techs.javascript, techs.heroku, techs.mui],
   },
   {
     title: 'Portfolio',
@@ -133,6 +149,6 @@ export const projects: Project[] = [
       source: 'https://github.com/trenaryja/portfolio',
       img: '/screenshots/justintrenary.netlify.app_.webp',
     },
-    tech: [tech.react, tech.typescript, tech.vercel, tech.next, tech.chakra],
+    tech: [techs.react, techs.typescript, techs.vercel, techs.next, techs.chakra],
   },
 ]

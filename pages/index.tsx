@@ -36,7 +36,10 @@ const Main = (props: GridProps) => (
     as="main"
     rowGap={10}
     gridTemplateColumns={`1fr min(80ch, calc(100% - 2rem)) 1fr`}
-    sx={{ '> *': { gridColumn: 2 } }}
+    sx={{
+      '> *': { gridColumn: 2 },
+      '> .full-bleed': { gridColumn: '1/-1', width: '100%' },
+    }}
     {...props}
   />
 )

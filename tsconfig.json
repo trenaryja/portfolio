@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "allowJs": false,
-    "downlevelIteration": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "incremental": true,

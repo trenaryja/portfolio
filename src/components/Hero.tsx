@@ -2,11 +2,13 @@ import { Grid, Heading, Image, ImageProps, useBoolean, useBreakpointValue, useIn
 
 const duration = 3
 
-const Face = ({ show, ...props }: ImageProps & { show: boolean }) => {
+type FaceProps = ImageProps & { show: boolean }
+
+const Face = ({ show, ...props }: FaceProps) => {
   return (
     <Image
       p={5}
-      fit="cover"
+      fit="contain"
       width="100%"
       borderRadius="full"
       aspectRatio="1/1"
@@ -35,8 +37,8 @@ export const Hero = () => {
         <Heading>Welcome to my portfolio!</Heading>
       </Grid>
       <Grid maxW={400} templateAreas="x" placeItems="center">
-        <Face src="/Bitmoji.webp" alt="Bitmoji of Justin" show={showBitmoji} />
-        <Face src="/Justin.webp" alt="Justin" show={!showBitmoji} />
+        <Face src="/bitmoji.webp" alt="Bitmoji of Justin" show={showBitmoji} transform="scaleX(-1)" />
+        <Face src="/justin.webp" alt="Justin" show={!showBitmoji} />
       </Grid>
     </Grid>
   )

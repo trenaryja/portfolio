@@ -10,7 +10,6 @@ import {
   Flex,
   Grid,
   Heading,
-  Image,
   Link,
   Tag,
   TagRightIcon,
@@ -18,6 +17,7 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import NextLink from 'next/link'
 import { FaGithub } from 'react-icons/fa'
 import { MdOutlineOpenInNew } from 'react-icons/md'
@@ -67,12 +67,12 @@ export const ProjectList = () => {
       {projects.map((project, i) => (
         <motion.div
           key={i}
-          initial={{ opacity: 0, x: `${i % 2 === 0 ? -50 : 50}%` }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ scale: 0, opacity: 0, x: `${i % 2 === 0 ? -50 : 50}%` }}
+          whileInView={{ scale: 1, opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
           <Card h="fit-content" overflow="hidden" variant="outline" bg="blackAlpha.500">
-            <Image src={project.links.img} alt={project.title} />
+            <Image width={1920} height={1080} src={project.links.img} alt={project.title} />
             <CardBody>
               <Grid gap={5}>
                 <TitleAccordion project={project} />
