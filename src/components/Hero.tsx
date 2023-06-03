@@ -37,8 +37,8 @@ export const Hero = () => {
         <Heading>Welcome to my portfolio!</Heading>
       </Grid>
       <Grid maxW={400} templateAreas="x" placeItems="center">
-        <Face src="/bitmoji.webp" alt="Bitmoji of Justin" show={showBitmoji} transform="scaleX(-1)" />
-        <Face src="/justin.webp" alt="Justin" show={!showBitmoji} />
+        <Face src="/faces/bitmoji.webp" alt="Bitmoji of Justin" show={showBitmoji} transform="scaleX(-1)" />
+        <Face src="/faces/justin.webp" alt="Justin" show={!showBitmoji} />
       </Grid>
     </Grid>
   )
