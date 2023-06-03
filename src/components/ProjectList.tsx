@@ -10,6 +10,7 @@ import {
   Flex,
   Grid,
   Heading,
+  Image,
   Link,
   Tag,
   TagRightIcon,
@@ -17,7 +18,6 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
-import Image from 'next/image'
 import NextLink from 'next/link'
 import { FaGithub } from 'react-icons/fa'
 import { MdOutlineOpenInNew } from 'react-icons/md'
@@ -72,7 +72,7 @@ export const ProjectList = () => {
           transition={{ duration: 0.5 }}
         >
           <Card h="fit-content" overflow="hidden" variant="outline" bg="blackAlpha.500">
-            <Image width={1920} height={1080} src={project.links.img} alt={project.title} />
+            <Image src={project.links.img} alt={project.title} />
             <CardBody>
               <Grid gap={5}>
                 <TitleAccordion project={project} />
