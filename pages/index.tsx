@@ -23,11 +23,17 @@ const Header = () => (
 )
 
 const Footer = () => (
-  <Flex as="footer" p={5} bg="blackAlpha.500" justify="center">
-    <Flex placeItems="center" p={10} gap={10}>
-      <Text textAlign="center">Made with 🤍 by Justin Trenary</Text>
-      <SocialButtons />
-    </Flex>
+  <Flex
+    as="footer"
+    bg="blackAlpha.500"
+    justify="center"
+    placeItems="center"
+    p={10}
+    gap={10}
+    flexDirection={['column', 'row']}
+  >
+    <Text textAlign="center">Made with 🤍 by Justin Trenary</Text>
+    <SocialButtons />
   </Flex>
 )
 

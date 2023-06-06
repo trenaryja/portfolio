@@ -67,8 +67,8 @@ export const ProjectList = () => {
       {projects.map((project, i) => (
         <motion.div
           key={i}
-          initial={{ scale: 0, opacity: 0, x: `${i % 2 === 0 ? -50 : 50}%` }}
-          whileInView={{ scale: 1, opacity: 1, x: 0 }}
+          initial={{ scale: 0, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
           <Card h="fit-content" overflow="hidden" variant="outline" bg="blackAlpha.500">
