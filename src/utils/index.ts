@@ -3,14 +3,11 @@ import { FormEvent } from 'react'
 
 export * from './theme'
 
-export const scrollTo = (id: string) => {
+export const scrollTo = (id: string | undefined) => {
+  if (!id) return
   const element = document.getElementById(id)
-  const top = element?.getBoundingClientRect().top ?? 0 + window.pageYOffset
-
-  window.scrollTo({
-    top: top,
-    behavior: 'smooth',
-  })
+  element?.scrollIntoView({ behavior: 'smooth' })
+  window.addEventListener('scrollend', () => (window.location.hash = id), { once: true })
 }
 
 export const scrollToTop = () => {
@@ -18,6 +15,7 @@ export const scrollToTop = () => {
     top: 0,
     behavior: 'smooth',
   })
+  window.addEventListener('scrollend', () => (window.location.hash = ''), { once: true })
 }
 
 export const sendEmail = async (e: FormEvent) => {

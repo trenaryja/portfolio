@@ -63,15 +63,16 @@ const Buttons = ({ project }: { project: Project }) => (
 export const ProjectList = () => {
   const templateColumns = useBreakpointValue({ base: '1fr', md: '1fr 1fr' })
   return (
-    <Grid overflow="hidden" gap={10} templateColumns={templateColumns} transition="all 1s ease-in-out">
+    <Grid gap={10} templateColumns={templateColumns} transition="all 1s ease-in-out">
       {projects.map((project, i) => (
         <motion.div
           key={i}
-          initial={{ scale: 0, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
+          initial={{ opacity: 0, rotateY: 180 }}
+          whileInView={{ opacity: 1, rotateY: 0 }}
           transition={{ duration: 0.5 }}
+          whileHover={{ scale: 1.05, transition: { duration: 0.125 } }}
         >
-          <Card h="fit-content" overflow="hidden" variant="outline" bg="blackAlpha.500">
+          <Card borderRadius="2xl" h="fit-content" overflow="hidden" variant="outline" bg="blackAlpha.500">
             <Image src={project.links.img} alt={project.title} />
             <CardBody>
               <Grid gap={5}>

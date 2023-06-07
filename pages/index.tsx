@@ -1,14 +1,24 @@
-import { Button, Flex, Grid, GridProps, Heading, HeadingProps, Link, Text } from '@chakra-ui/react'
-import { ContactForm, Hero, ProjectList, SocialButtons } from '../src/components'
+import { Button, Flex, Grid, GridProps, Text } from '@chakra-ui/react'
+import { ContactForm, HashHeading, Hero, ProjectList, SocialButtons } from '../src/components'
 import { scrollTo } from '../src/utils'
 
+const contentWidth = 'min(80ch, calc(100% - 2rem))'
+
+const contentWrapperProps: GridProps = {
+  templateColumns: `1fr ${contentWidth} 1fr`,
+  sx: {
+    '> *': { gridColumn: 2 },
+    '> .full-bleed': { gridColumn: '1/-1', width: '100%' },
+  },
+}
+
 const PageWrapper = (props: GridProps) => (
-  <Grid w="100%" minH="100vh" templateRows="auto 1fr auto" gap={10} {...props} />
+  <Grid minH="100vh" templateRows="auto 1fr auto" gap={10} {...contentWrapperProps} {...props} />
 )
 
 const Header = () => (
-  <Flex as="header" p={5} bg="blackAlpha.500" justify="center" position="sticky">
-    <Flex maxW="container.md" justify="space-around" w="100%">
+  <Grid as="header" className="full-bleed" {...contentWrapperProps} p={5} bg="blackAlpha.500">
+    <Flex as="nav" justify="space-around">
       <Button variant="link" onClick={() => scrollTo('about')}>
         About
       </Button>
@@ -19,12 +29,13 @@ const Header = () => (
         Contact
       </Button>
     </Flex>
-  </Flex>
+  </Grid>
 )
 
 const Footer = () => (
   <Flex
     as="footer"
+    className="full-bleed"
     bg="blackAlpha.500"
     justify="center"
     placeItems="center"
@@ -37,42 +48,11 @@ const Footer = () => (
   </Flex>
 )
 
-const Main = (props: GridProps) => (
-  <Grid
-    as="main"
-    rowGap={10}
-    gridTemplateColumns={`1fr min(80ch, calc(100% - 2rem)) 1fr`}
-    sx={{
-      '> *': { gridColumn: 2 },
-      '> .full-bleed': { gridColumn: '1/-1', width: '100%' },
-    }}
-    {...props}
-  />
-)
-
-const HashHeading = ({ id, ...props }: HeadingProps) => (
-  <Link href={`#${id}`} w="fit-content">
-    <Heading
-      id={id}
-      py={3}
-      sx={{
-        '&:hover::after': {
-          content: `" #"`,
-          textDecoration: 'none',
-        },
-      }}
-      {...props}
-    />
-  </Link>
-)
-
-// const FullBleed = (props: GridProps) => <Grid gridColumn="1/-1" {...props} />
-
 export default function Index() {
   return (
     <PageWrapper>
       <Header />
-      <Main>
+      <Grid as="main" gap={10}>
         <Hero />
         <HashHeading id="about">About</HashHeading>
         <Text>
@@ -87,7 +67,7 @@ export default function Index() {
         <ProjectList />
         <HashHeading id="contact">Contact</HashHeading>
         <ContactForm />
-      </Main>
+      </Grid>
       <Footer />
     </PageWrapper>
   )
