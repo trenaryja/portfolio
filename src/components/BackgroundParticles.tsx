@@ -1,24 +1,28 @@
-import { useCallback } from 'react'
-import Particles from 'react-tsparticles'
-import { loadFull } from 'tsparticles'
-import { Engine } from 'tsparticles-engine'
+import { initParticlesEngine, Particles } from '@tsparticles/react'
+import { loadSlim } from '@tsparticles/slim'
+import { useEffect, useState } from 'react'
 
 export const BackgroundParticles = () => {
-  const particlesInit = useCallback(async (engine: Engine) => await loadFull(engine), [])
+	const [init, setInit] = useState(false)
 
-  return (
-    <Particles
-      init={particlesInit}
-      options={{
-        style: { opacity: '0.25' },
-        fpsLimit: 60,
-        particles: {
-          links: { enable: true, distance: 150 },
-          move: { enable: true, random: true },
-          size: { value: 1 },
-          number: { density: { enable: true, area: 100 }, value: 10 },
-        },
-      }}
-    />
-  )
+	useEffect(() => {
+		initParticlesEngine(async (engine) => await loadSlim(engine)).then(() => setInit(true))
+	}, [])
+
+	if (!init) return <></>
+
+	return (
+		<Particles
+			options={{
+				style: { opacity: '0.25' },
+				fpsLimit: 60,
+				particles: {
+					links: { enable: true, distance: 150 },
+					move: { enable: true, random: true },
+					size: { value: 1 },
+					number: { density: { enable: true }, value: 150 },
+				},
+			}}
+		/>
+	)
 }

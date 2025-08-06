@@ -1,60 +1,49 @@
 {
-  "name": "portfolio",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "format": "npx prettier --write **/*.{js,jsx,ts,tsx,css,md,json} --ignore-path .gitignore",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@chakra-ui/next-js": "^2.1.4",
-    "@chakra-ui/react": "^2.7.0",
-    "@emailjs/browser": "^3.11.0",
-    "@emotion/cache": "^11.11.0",
-    "@emotion/react": "^11.11.0",
-    "@emotion/server": "^11.11.0",
-    "@emotion/styled": "^11.11.0",
-    "framer-motion": "^10.12.16",
-    "next": "^13.4.4",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-icons": "^4.9.0",
-    "react-tsparticles": "^2.10.1",
-    "tsparticles": "^2.10.1",
-    "tsparticles-engine": "^2.10.1"
-  },
-  "devDependencies": {
-    "@types/node": "^20.2.5",
-    "@types/react": "18.2.8",
-    "@typescript-eslint/eslint-plugin": "^5.59.9",
-    "@typescript-eslint/parser": "^5.59.9",
-    "eslint": "8.42.0",
-    "eslint-config-next": "13.4.4",
-    "eslint-plugin-simple-import-sort": "^10.0.0",
-    "prettier": "2.8.8",
-    "typescript": "5.1.3"
-  },
-  "prettier": {
-    "printWidth": 120,
-    "semi": false,
-    "singleQuote": true,
-    "trailingComma": "all"
-  },
-  "eslintConfig": {
-    "parser": "@typescript-eslint/parser",
-    "plugins": [
-      "@typescript-eslint"
-    ],
-    "extends": [
-      "eslint:recommended",
-      "plugin:@typescript-eslint/recommended",
-      "next/core-web-vitals"
-    ],
-    "rules": {
-      "react/no-unescaped-entities": "off"
-    }
-  }
+	"name": "portfolio",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"format": "prettier --write . !\"pnpm-lock.yaml\"",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"@chakra-ui/next-js": "^2.1.4",
+		"@chakra-ui/react": "^2.7.0",
+		"@emailjs/browser": "^4.4.1",
+		"@emotion/cache": "^11.11.0",
+		"@emotion/react": "^11.11.0",
+		"@emotion/server": "^11.11.0",
+		"@emotion/styled": "^11.11.0",
+		"@tsparticles/engine": "^3.9.1",
+		"@tsparticles/react": "^3.0.0",
+		"@tsparticles/slim": "^3.9.1",
+		"framer-motion": "^10.12.16",
+		"next": "^15.4.5",
+		"react": "19.1.1",
+		"react-dom": "19.1.1",
+		"react-icons": "^5.5.0"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.32.0",
+		"@next/eslint-plugin-next": "^15.4.5",
+		"@types/node": "^24.2.0",
+		"@types/react": "19.1.9",
+		"eslint": "9.32.0",
+		"eslint-plugin-react": "^7.37.5",
+		"globals": "^16.3.0",
+		"prettier": "3.6.2",
+		"typescript": "5.9.2",
+		"typescript-eslint": "^8.39.0"
+	},
+	"prettier": {
+		"semi": false,
+		"singleQuote": true,
+		"trailingComma": "all",
+		"printWidth": 120,
+		"jsxSingleQuote": true,
+		"useTabs": true
+	}
 }
