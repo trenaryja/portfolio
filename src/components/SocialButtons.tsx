@@ -5,17 +5,17 @@ import { FaCodepen, FaGithub, FaLinkedin } from 'react-icons/fa'
 const size = '1.5rem'
 
 export const SocialButtons = () => {
-  return (
-    <Flex gap={5}>
-      <Link as={NextLink} href="https://github.com/trenaryja">
-        <FaGithub size={size} />
-      </Link>
-      <Link as={NextLink} href="https://www.linkedin.com/in/justintrenary/">
-        <FaLinkedin size={size} />
-      </Link>
-      <Link as={NextLink} href="https://codepen.io/jtrenary">
-        <FaCodepen size={size} />
-      </Link>
-    </Flex>
-  )
+	return (
+		<Flex gap={5}>
+			<Link as={NextLink} href='https://github.com/trenaryja'>
+				<FaGithub size={size} />
+			</Link>
+			<Link as={NextLink} href='https://www.linkedin.com/in/justintrenary/'>
+				<FaLinkedin size={size} />
+			</Link>
+			<Link as={NextLink} href='https://codepen.io/jtrenary'>
+				<FaCodepen size={size} />
+			</Link>
+		</Flex>
+	)
 }
