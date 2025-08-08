@@ -1,5 +1,3 @@
-// import technologies, { Technology } from './technologies'
-
 import { IconType } from 'react-icons'
 import {
 	SiChakraui,
