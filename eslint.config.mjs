@@ -1,42 +1,24 @@
-import pluginJs from '@eslint/js'
-import pluginNext from '@next/eslint-plugin-next'
-import pluginReact from 'eslint-plugin-react'
-import { globalIgnores } from 'eslint/config'
-import globals from 'globals'
-import tseslint from 'typescript-eslint'
+import { FlatCompat } from '@eslint/eslintrc'
+
+const compat = new FlatCompat({
+	baseDirectory: import.meta.url,
+})
 
 /** @type {import('eslint').Linter.Config[]} */
-export default [
-	globalIgnores(['node_modules', '.next']),
-	pluginJs.configs.recommended,
-	...tseslint.configs.recommended,
-	pluginReact.configs.flat.recommended,
+const eslintConfig = [
+	{ ignores: ['.next/**', 'next-env.d.ts'] },
+	...compat.extends('next/core-web-vitals', 'next/typescript'),
 	{
-		files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
-		languageOptions: { globals: globals.browser },
-		settings: { react: { version: 'detect' } },
 		rules: {
-			'react/react-in-jsx-scope': 'off',
+			'react/no-unescaped-entities': 'off',
+			'@next/next/no-img-element': 'off',
+			'@typescript-eslint/no-namespace': 'off',
 			'@typescript-eslint/no-unused-vars': [
 				'error',
-				{
-					varsIgnorePattern: '^_',
-					argsIgnorePattern: '^_',
-					destructuredArrayIgnorePattern: '^_',
-					caughtErrorsIgnorePattern: '^_',
-				},
+				{ argsIgnorePattern: '^_', varsIgnorePattern: '^_', caughtErrorsIgnorePattern: '^_' },
 			],
 		},
 	},
-	{
-		plugins: {
-			'@next/next': pluginNext,
-		},
-		rules: {
-			...pluginNext.configs.recommended.rules,
-			...pluginNext.configs['core-web-vitals'].rules,
-			'react/no-unescaped-entities': 'off',
-			'@next/next/no-img-element': 'off',
-		},
-	},
 ]
+
+export default eslintConfig

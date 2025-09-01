@@ -32,8 +32,16 @@ export default async function HomePage() {
 					<h2 className='text-3xl font-bold'>Welcome to my portfolio!</h2>
 				</div>
 				<div className='grid-stack rounded-full overflow-hidden max-w-sm *:object-contain *:aspect-square *:transition-opacity'>
-					<img src='/faces/bitmoji.webp' className='rotate-y-180 [animation:fade-a_4s_linear_infinite]' />
-					<img src='/faces/justin.webp' className='[animation:fade-b_4s_linear_infinite]' />
+					<img
+						alt='bitmoji of justin trenary'
+						src='/faces/bitmoji.webp'
+						className='rotate-y-180 [animation:fade-a_4s_linear_infinite]'
+					/>
+					<img
+						alt='image of justin trenary'
+						src='/faces/justin.webp'
+						className='[animation:fade-b_4s_linear_infinite]'
+					/>
 				</div>
 			</section>
 
