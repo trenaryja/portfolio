@@ -1,6 +1,7 @@
 'use client'
 
-import { cn, sendEmail } from '@/utils'
+import { sendEmail } from '@/utils'
+import { cn } from '@trenaryja/ui'
 import { FormEvent, useState } from 'react'
 import { FaCheck, FaPaperPlane } from 'react-icons/fa6'
 

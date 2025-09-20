@@ -1,14 +1,8 @@
 import emailjs from '@emailjs/browser'
 import { useWindowScroll } from '@mantine/hooks'
-import { ClassValue, clsx } from 'clsx'
 import { FormEvent } from 'react'
-import { twMerge } from 'tailwind-merge'
 
-export type RemoveIndexSignature<T> = {
-	[K in keyof T as string extends K ? never : K]: T[K]
-}
-
-export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs))
+export const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms))
 
 export const sendEmail = async (e: FormEvent) => {
 	return await emailjs.sendForm(
@@ -19,10 +13,15 @@ export const sendEmail = async (e: FormEvent) => {
 	)
 }
 
-export function useScrollProgress() {
+export const useScrollProgress = () => {
 	const [scroll] = useWindowScroll()
 	if (typeof window === 'undefined') return 0
 	const { scrollHeight, clientHeight } = document.documentElement
 	const maxScroll = scrollHeight - clientHeight
 	return maxScroll > 0 ? scroll.y / maxScroll : 0
+}
+
+export const urlToScreenshotPath = (url: string): `${string}.webp` => {
+	const { hostname, pathname } = new URL(url)
+	return `/screenshots/${hostname}${pathname.replace(/\/+/g, '_').replace(/^_+|_+$/g, '')}.webp`
 }

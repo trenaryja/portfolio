@@ -1,6 +1,7 @@
 import { ContactForm } from '@/components'
 import { projects } from '@/data'
-import { cn } from '@/utils'
+import { urlToScreenshotPath } from '@/utils'
+import { cn } from '@trenaryja/ui'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ComponentProps } from 'react'
@@ -65,23 +66,15 @@ export default async function HomePage() {
 							key={project.title}
 							className='h-fit border border-current/25 frosted-glass rounded-box overflow-hidden transition-all hover:scale-105'
 						>
-							<img src={project.links.img} alt={project.title} />
+							<img src={urlToScreenshotPath(project.links.visit)} alt={project.title} />
 							<div className='p-5 grid gap-5'>
-								<div tabIndex={0} className='collapse'>
+								<div tabIndex={0} className='collapse *:p-0 group'>
 									<div className='collapse-title flex gap-5 justify-center items-center'>
 										<h3 className='text-xl font-semibold text-center'>{project.title}</h3>
-										<FaChevronDown />
+										<FaChevronDown className='group-focus-within:rotate-180 transition-transform' />
 									</div>
-									<div className='collapse-content grid gap-5'>
+									<div className='collapse-content grid gap-5 group-focus-within:pt-5'>
 										<p>{project.description}</p>
-										<div className='flex flex-wrap gap-2 justify-center'>
-											{project.tech?.map((tech) => (
-												<span key={tech.name} className='badge badge-outline p-2 flex items-center gap-2'>
-													{tech.name}
-													<tech.icon />
-												</span>
-											))}
-										</div>
 									</div>
 								</div>
 								<div className='flex justify-center gap-5'>
