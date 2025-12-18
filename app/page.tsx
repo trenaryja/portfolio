@@ -36,13 +36,9 @@ export default async function HomePage() {
 					<img
 						alt='bitmoji of justin trenary'
 						src='/faces/bitmoji.webp'
-						className='rotate-y-180 [animation:fade-a_4s_linear_infinite]'
+						className='rotate-y-180 animate-[fade-a_4s_linear_infinite]'
 					/>
-					<img
-						alt='image of justin trenary'
-						src='/faces/justin.webp'
-						className='[animation:fade-b_4s_linear_infinite]'
-					/>
+					<img alt='image of justin trenary' src='/faces/justin.webp' className='animate-[fade-b_4s_linear_infinite]' />
 				</div>
 			</section>
 
