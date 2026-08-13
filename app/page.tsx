@@ -1,7 +1,7 @@
 import { ContactForm } from '@/components'
 import { projects } from '@/data'
 import { urlToScreenshotPath } from '@/utils'
-import { cn } from '@trenaryja/ui'
+import { cn } from '@trenaryja/ui/utils'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ComponentProps } from 'react'
