@@ -11,6 +11,7 @@ export const BackToTop = () => {
 	return (
 		<div className='fixed z-10 bottom-4 right-4'>
 			<button
+				type='button'
 				className='btn btn-square relative overflow-hidden'
 				onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
 			>

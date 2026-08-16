@@ -1,7 +1,8 @@
 'use client'
 
 import { useMounted } from '@mantine/hooks'
-import { cn, DaisyThemeName } from '@trenaryja/ui'
+import type { DaisyThemeName } from '@trenaryja/ui'
+import { cn } from '@trenaryja/ui'
 import daisyThemes from 'daisyui/theme/object'
 import { useTheme } from 'next-themes'
 import { FaPalette } from 'react-icons/fa6'
@@ -25,9 +26,9 @@ export const ThemePicker = () => {
 
 	return (
 		<div className='dropdown dropdown-end'>
-			<label tabIndex={0} className='btn btn-square btn-ghost'>
+			<div tabIndex={0} role='button' className='btn btn-square btn-ghost'>
 				<FaPalette />
-			</label>
+			</div>
 			<ul
 				tabIndex={0}
 				className='dropdown-content overflow-auto max-h-[50dvh] menu grid p-2 border border-current/25 rounded-box frosted-glass'
@@ -35,6 +36,7 @@ export const ThemePicker = () => {
 				{themes.map((x) => (
 					<li key={x.name}>
 						<button
+							type='button'
 							className={cn({ 'before:content-["⦿"]': resolvedTheme === x.name })}
 							onClick={() => setTheme(resolvedTheme === x.name ? 'system' : x.name)}
 						>

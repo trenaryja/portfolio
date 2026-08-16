@@ -2,14 +2,16 @@
 
 import { sendEmail } from '@/utils'
 import { cn } from '@trenaryja/ui'
-import { FormEvent, useState } from 'react'
+import type { FormEvent } from 'react'
+import { useState } from 'react'
 import { FaCheck, FaPaperPlane } from 'react-icons/fa6'
 
 export const ContactForm = () => {
-	const [submissionState, setSubmissionState] = useState<'ready' | 'sending' | 'sent' | 'error'>('ready')
+	const [submissionState, setSubmissionState] = useState<'error' | 'ready' | 'sending' | 'sent'>('ready')
 
 	const handleSubmit = async (e: FormEvent) => {
 		e.preventDefault()
+
 		try {
 			setSubmissionState('sending')
 			await sendEmail(e)

@@ -1,22 +1,12 @@
-import nextVitals from 'eslint-config-next/core-web-vitals'
-import nextTs from 'eslint-config-next/typescript'
-import { defineConfig, globalIgnores } from 'eslint/config'
+import { defineConfig } from '@trenaryja/config/eslint'
 
-const eslintConfig = defineConfig([
-	...nextVitals,
-	...nextTs,
-	globalIgnores(['.next/**', 'out/**', 'build/**', 'next-env.d.ts']),
+export default [
+	...defineConfig(),
 	{
-		rules: {
-			'react/no-unescaped-entities': 'off',
-			'@next/next/no-img-element': 'off',
-			'@typescript-eslint/no-namespace': 'off',
-			'@typescript-eslint/no-unused-vars': [
-				'error',
-				{ argsIgnorePattern: '^_', varsIgnorePattern: '^_', caughtErrorsIgnorePattern: '^_' },
-			],
-		},
+		// scripts/ drive a headless browser one page at a time — sequential automation
+		// (shared browser, per-page geolocation, politeness to external sites), like a
+		// provisioning script — so await-in-loop is the idiom, not a mistake.
+		files: ['scripts/**'],
+		rules: { 'no-await-in-loop': 'off' },
 	},
-])
-
-export default eslintConfig
+]

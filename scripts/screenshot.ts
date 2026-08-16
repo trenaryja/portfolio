@@ -22,7 +22,7 @@ async function screenshotAll() {
 			await page.setGeolocation({ latitude: 40.7418, longitude: -73.9893 }) // New York
 			await page.goto(url, { waitUntil: 'networkidle2', timeout: 60000 })
 			await mkdir(dirname(imgPath), { recursive: true })
-			await page.screenshot({ path: imgPath as `${string}.webp` })
+			await page.screenshot({ path: imgPath })
 			await page.close()
 		} catch (err) {
 			console.error(`❌ Failed to capture ${project.title}`, err)

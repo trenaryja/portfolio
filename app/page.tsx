@@ -4,7 +4,7 @@ import { urlToScreenshotPath } from '@/utils'
 import { cn } from '@trenaryja/ui/utils'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ComponentProps } from 'react'
+import type { ComponentProps } from 'react'
 import { FaChevronDown, FaGithub, FaLink } from 'react-icons/fa6'
 import logo from './icon.svg'
 
@@ -27,7 +27,7 @@ export default async function HomePage() {
 						<Image src={logo} alt='logo' className={cn('invisible')} />
 						<div
 							className='bg-primary absolute inset-0 mask-center mask-contain mask-no-repeat'
-							style={{ maskImage: `url(${logo.src})`, WebkitMaskImage: `url(${logo.src})` } as React.CSSProperties}
+							style={{ maskImage: `url(${logo.src})`, WebkitMaskImage: `url(${logo.src})` }}
 						/>
 					</div>
 					<h2 className='text-3xl font-bold'>Welcome to my portfolio!</h2>
@@ -38,7 +38,7 @@ export default async function HomePage() {
 						src='/faces/bitmoji.webp'
 						className='rotate-y-180 animate-[fade-a_4s_linear_infinite]'
 					/>
-					<img alt='image of justin trenary' src='/faces/justin.webp' className='animate-[fade-b_4s_linear_infinite]' />
+					<img alt='justin trenary' src='/faces/justin.webp' className='animate-[fade-b_4s_linear_infinite]' />
 				</div>
 			</section>
 

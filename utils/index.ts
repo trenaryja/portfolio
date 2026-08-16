@@ -1,8 +1,11 @@
 import emailjs from '@emailjs/browser'
 import { useWindowScroll } from '@mantine/hooks'
-import { FormEvent } from 'react'
+import type { FormEvent } from 'react'
 
-export const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms))
+export const sleep = (ms: number) =>
+	new Promise((resolve) => {
+		setTimeout(resolve, ms)
+	})
 
 export const sendEmail = async (e: FormEvent) => {
 	return await emailjs.sendForm(
